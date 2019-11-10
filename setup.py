@@ -1,6 +1,10 @@
 # example Cobaya external likelihood package, here just a simple H0 prior
 
 from setuptools import setup
+import os
+
+file_dir = os.path.abspath(os.path.dirname(__file__))
+os.chdir(file_dir)
 
 setup(name="test_package",
       version='1.0',
