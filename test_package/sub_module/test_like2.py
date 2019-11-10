@@ -1,15 +1,10 @@
-from scipy.stats import norm
-from cobaya.likelihood import Likelihood
+from test_package import TestLike
 
 
-class test_like2(Likelihood):
+class TestLike2(TestLike):
+    pass
 
-    def initialize(self):
-        self.norm = norm(loc=self.H0, scale=self.H0_std)
 
-    def add_theory(self):
-        self.theory.needs(H0=None)
-
-    def logp(self, **params_values):
-        H0_theory = self.theory.get_param("H0")
-        return self.norm.logpdf(H0_theory)
+class test_like2(TestLike2):
+    # this one inherits yaml from TestLike2 since no explicit .yaml provided
+    pass

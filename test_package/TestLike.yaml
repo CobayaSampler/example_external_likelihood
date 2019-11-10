@@ -1,5 +1,5 @@
 likelihood:
-  test_package.test_like:
+  __self__:
     H0: 73.45
     H0_std: 1.66
     speed: 10000
