@@ -11,7 +11,7 @@ setup(name="test_package",
       description='Example external Cobaya likelihood package',
       zip_safe=True,  # set to false if you want to easily access bundled package data files
       packages=['test_package', 'test_package.sub_module', 'test_package.tests'],
-      package_data={'test_package': ['*.yaml'],
+      package_data={'test_package': ['*.yaml', "*.bibtex"],
                     'test_package.sub_module': ['*.yaml']},
       install_requires=['cobaya (>=2.0.5)'],
       test_suite='test_package.tests',
