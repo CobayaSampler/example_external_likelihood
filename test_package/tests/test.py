@@ -14,8 +14,6 @@ class LikeTest(unittest.TestCase):
             info_yaml = r"""
             likelihood:
               %s:
-            theory:
-              camb:
             params:
               H0: 72
             """ % name
