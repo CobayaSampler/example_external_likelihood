@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "test_package"
+dynamic = ["version"]
+description = "Example external Cobaya likelihood package"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "cobaya>=3.5.0"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Astronomy"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=6.0"]
+
+[tool.setuptools.dynamic]
+version = {attr = "test_package.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["test_package*"]
+
+[tool.setuptools.package-data]
+test_package = ["*.yaml", "*.bibtex"]
+"test_package.sub_module" = ["*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["test_package/tests"]
+python_files = ["test*.py"]
+python_classes = ["*Test"]
+python_functions = ["test_*"]
